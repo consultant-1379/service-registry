@@ -1,0 +1,79 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"0168c39d-5fc9-4483-9a65-6e92992cdb79",
+         "description":"Confluent Schema Registry Modeling based service",
+         "serviceType":"BACKGROUND",
+         "technology":"SchemaRegistry",
+         "version":"3.2.2"
+      },
+      "extensionPoints":[
+
+      ],
+      "integrationPoints":[
+
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"schema-registry:latest",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia/base",
+               "imagePath":"schema-registry:latest",
+               "network":"HOST",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+			"service:io:kafka:0.10.2.1"
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+            {
+               "key":"mainClass",
+               "value":"<main-classofflinkapp>"
+            },
+            {
+               "key":"masterUrl",
+               "value":"<jobmanager-ip:port>"
+            },
+            {
+               "key":"flowPath",
+               "value":"hdfs://<Namenode-ip:port>/<pathonhdfs>"
+            },
+            {
+               "key":"jobArguments",
+               "value":"<otherarguments>"
+            }
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

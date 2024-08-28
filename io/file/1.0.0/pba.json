@@ -1,0 +1,105 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"13021852-0838-4738-8a74-10464307c6d8",
+         "serviceType":"IO",
+         "technology":"file",
+         "version":"1.0.0"
+      },
+      "extensionPoints":[
+         {
+            "technology":"file",
+            "description":"The File data source allows the application to read data from a file",
+            "uri":{
+               "protocol":"file://",
+               "address":"<path>",
+			   "help":"Path of the file in the format file://dir/file",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        "xml",
+						"csv",
+                        "json",
+						"orc", 
+						"parquet"
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"header",
+                  "value":"false",
+                  "isReadOnly":false,
+                  "help":"Read data header from the specified file",
+                  "isRequired":false,
+                  "type":"boolean"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"file",
+            "description":"The File data sink allows the application to write data to a file",
+            "uri":{
+               "protocol":"file://",
+               "address":"path",
+			   "help":"Path of the file in the format file://dir/file",			   
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        "xml",
+						"csv",
+						"orc",
+						"parquet",
+                        "json"
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"header",
+                  "value":"false",
+                  "isReadOnly":false,
+				  "help":"Write data header to the specified file",				  
+                  "isRequired":false,
+                  "type":"boolean"
+               }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

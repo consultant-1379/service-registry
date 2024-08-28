@@ -1,0 +1,190 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"",
+         "serviceType":"IO",
+         "technology":"beam-jdbc-mysql",
+         "version":"5.7.19"
+      },
+      "extensionPoints":[
+         {
+            "technology":"beam-jdbc-mysql",
+            "description":"The MySQL data source reads data from a specified table within a MySQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"JDBC source URI",
+               "help":"URI in the format of jdbc://<table name>",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The password used to connect to the MySQL database",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"username",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The username used to connect to the MySQL database",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driverClassName",
+                  "value":"com.mysql.jdbc.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"url",
+                  "value":"<URL>",
+                  "isReadOnly":false,
+                  "help":"The JDBC connection URL, in the format of jdbc:mysql://address:port/database",
+                  "isRequired":true,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"beam-jdbc-mysql",
+            "description":"The MySQL data sink writes data to a specified table within a MySQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"JDBC destination URI",
+               "help":"URI in the format jdbc://<table_name>",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The password used to connect to the MySQL database",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"username",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The username used to connect to the MySQL database",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driverClassName",
+                  "value":"com.mysql.jdbc.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"url",
+                  "value":"<URL>",
+                  "isReadOnly":false,
+                  "help":"The JDBC connection URL, in the format of jdbc:mysql://address:port/database",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"statement",
+                  "value":"<SQL prepared statement>",
+                  "isReadOnly":false,
+                  "help":"The prepared statement used to insert record into destination URI",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"batchSize",
+                  "value":"<batch size>",
+                  "isReadOnly": false,
+                  "help":"Provide maximum size in number of SQL statement for the batch, default is 1000",
+                  "isRequired":false,
+                  "type":"integer"
+               },
+               {
+                  "key":"preparedStatementSetter",
+                  "value":"<preparedStatement Setter>",
+                  "isReadOnly":false,
+                  "help":"An interface used by the JdbcIO to set the parameters of the statement.",
+                  "isRequired": true,
+                  "type":"string"
+               }
+
+            ]
+         }
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"aia-docker-mysql",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia_releases",
+               "imagePath":"mysql:v5.7.19",
+               "network":"<networktype>",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

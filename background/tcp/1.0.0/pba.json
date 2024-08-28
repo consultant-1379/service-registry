@@ -1,0 +1,66 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"ea9b125b-be08-4caf-8167-93e6fa98057c",
+         "serviceType":"BACKGROUND",
+         "technology":"TCP",
+         "version":"1.0.0"
+      },
+      "extensionPoints":[
+
+      ],
+      "integrationPoints":[
+
+      ],
+      "buildInfo":{
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<In GB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+            {
+               "key":"mainClass",
+               "value":"<main-class of Spark app>"
+            },
+            {
+               "key":"deployMode",
+               "value":"<client/cluster>"
+            },
+            {
+               "key":"masterUrl",
+               "value":"<sparkmaster-ip:port>"
+            },
+            {
+               "key":"bpsJar",
+               "value":"hdfs://<path on hdfs>"
+            },
+            {
+               "key":"flowPath",
+               "value":"hdfs://<path on hdfs>"
+            },
+            {
+               "key":"jobArguments",
+               "value":"<other arguments>"
+            }
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

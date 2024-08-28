@@ -1,0 +1,126 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"",
+         "serviceType":"IO",
+         "technology":"beam-HDFS",
+         "version":"1.0.0"
+      },
+      "extensionPoints":[
+         {
+            "technology":"beam-HDFS",
+            "description":"The beam based HDFS file I/O",
+            "uri":{
+               "protocol":"hdfs://",
+               "address":"<HDFS path>",
+			   "help":"URI of the HDFS Path, in the format HDFS://<file path>[?format=<file format>]",
+               "args":[{
+			         "key" : "format",
+    					 "value" : [ "" ],
+    					 "type" : "array"
+    			   }]
+            },
+            "attributes":[
+               {
+                  "key":"compression.type",
+                  "value":"",
+                  "isReadOnly":false,
+                  "help":"File compression types",
+                  "isRequired":false,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"beam-HDFS",
+            "description":"URI of the HDFS Path, in the format HDFS://<file path>[?format=<file format>]",
+            "uri":{
+               "protocol":"hdfs://",
+               "address":"<HDFS path>",
+			   "help":"URI of the HDFS Path, in the format HDFS://<file path>[?format=<file format>]",
+               "args":[{
+                  "key" : "format",
+                  "value" : [ "" ],
+                  "type" : "array"
+               }]
+            },
+            "attributes":[
+               {
+                  "key":"header",
+                  "value":"",
+                  "isReadOnly":false,
+				  "help":"Write data header to the specified file",				  
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                "key":"footer",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Write data footer to the specified file",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"num.shards",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Number of shards for the output files.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"shards.name.template",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Shard file name template.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"suffix",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Suffix for the output file.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"windowed.writes",
+                "value":"false",
+                "isReadOnly":false,
+                "help":"Windowed writes enabled or not.",				  
+                "isRequired":false,
+                "type":"boolean"
+             }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "dependencies":[]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

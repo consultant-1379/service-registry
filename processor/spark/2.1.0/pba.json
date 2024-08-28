@@ -1,0 +1,76 @@
+{
+    "pba": {
+        "status": "ACTIVE",
+        "serviceInfo": {
+            "id": "25a221d7-91fd-47cc-83b9-bac1a84e6f0d",
+            "serviceType": "PROCESSOR",
+            "technology": "Spark",
+            "version": "2.1.0"
+        },
+        "processorInfo": {
+            "id": "25a221d7-91fd-47cc-83b9-bac1a84e6f0d",
+            "technology": "Spark",
+            "version": "2.1.0",
+            "description": "Apache Spark is a fast and general engine for large-scale data processing."
+        },
+        "extensionPoints": [
+        	],
+        "integrationPoints": [
+        	],
+        "buildInfo": {
+            "container": {
+                "docker": {
+                    "name": "spark:v2.1.0",
+                    "repoBaseUrl": "armdocker.rnd.ericsson.se",
+                    "repoPath": "aia_releases",
+                    "imagePath": "spark:v2.1.0",
+                    "network": "HOST",
+                    "portList": [],
+                    "mountPaths": [],
+                    "mountName": [],
+                    "forcePullImage": true,
+                    "privileged": true
+                }
+            },
+            "dependencies": [""]
+        },
+        "deploymentInfo": {
+            "servicePorts": [],
+            "maturity": 0,
+            "stagingStatus": true,
+            "inProduction": true,
+            "deploymentScope": "private|public",
+            "noOfInstances": "1",
+            "noOfCpuPerInstance": "1",
+            "memorySize": "<In GB>",
+            "envArgs": [],
+            "appArgs": [
+                {
+                    "key": "mainClass",
+                    "value": "<main-class of Spark app>"
+                },
+                {
+                    "key": "deployMode",
+                    "value": "<client/cluster>"
+                },
+                {
+                    "key": "masterUrl",
+                    "value": "<sparkmaster-ip:port>"
+                },
+                {
+                    "key": "bpsJar",
+                    "value": "hdfs://<path on hdfs>"
+                },
+                {
+                    "key": "flowPath",
+                    "value": "hdfs://<path on hdfs>"
+                },
+                {
+                    "key": "jobArguments",
+                    "value": "<other arguments>"
+                }
+            ],
+            "attributes": []
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "pba": {
+        "status": "ACTIVE",
+        "serviceInfo": {
+            "id": "",
+            "serviceType": "PROCESSOR",
+            "technology": "Beam",
+            "version": "2.3"
+        },
+        "processorInfo": {
+            "id": "",
+            "technology": "Beam",
+            "version": "2.3",
+            "description": "Apache Beam is an open source unified programming model to define and execute data processing pipelines, including ETL, batch and stream processing."
+        },
+        "extensionPoints": [],
+        "integrationPoints": [],
+        "buildInfo": {
+            "container": {
+                "docker": {
+                    "name": "",
+                    "repoBaseUrl": "",
+                    "repoPath": "",
+                    "imagePath": "",
+                    "network": "",
+                    "portList": [],
+                    "mountPaths": [],
+                    "mountName": [],
+                    "forcePullImage": true,
+                    "privileged": true
+                }
+            },
+            "dependencies": [""]
+        },
+        "deploymentInfo": {
+            "servicePorts": [],
+            "maturity": 0,
+            "stagingStatus": true,
+            "inProduction": true,
+            "deploymentScope": "private|public",
+            "noOfInstances": "1",
+            "noOfCpuPerInstance": "1",
+            "memorySize": "<In GB>",
+            "envArgs": [],
+            "appArgs": [],
+            "attributes": []
+        }
+    }
+}

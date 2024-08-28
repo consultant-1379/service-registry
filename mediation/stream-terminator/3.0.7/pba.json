@@ -1,0 +1,105 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"service:mediation:stream-terminator:3.0.7",
+         "description":"An application for terminating raw TCP event streams from radio nodes.",
+         "serviceType":"MEDIATION",
+         "technology":"StreamTerminator",
+         "version":"3.0.7"
+      },
+      "extensionPoints":[
+
+      ],
+      "integrationPoints":[
+
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"terminator-kafka:3.0.7-SNAPSHOT",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia_snapshots/mediation/event-stream-terminator",
+               "imagePath":"terminator-kafka:3.0.7-SNAPSHOT",
+               "network":"HOST",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+            ""
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+            {
+               "key":"SCHEMA_REGISTRY",
+               "value":""
+            },
+            {
+               "key":"APPLICATION_ID",
+               "value":""
+            },
+            {
+               "key":"APPLICATION_HOME",
+               "value":""
+            },
+            {
+               "key":"LOG_LEVEL",
+               "value":""
+            },
+            {
+               "key":"CONF_FILE",
+               "value":""
+            },
+            {
+               "key":"INTEGRATION_POINT_NAME",
+               "value":""
+            },
+            {
+               "key":"JMX_PORT",
+               "value":""
+            },
+            {
+               "key":"LOG_DIR",
+               "value":""
+            },
+            {
+               "key":"MAX_HEAP_SIZE_GB",
+               "value":""
+            },
+            {
+               "key":"STREAM_PORT",
+               "value":""
+            },
+            {
+               "key":"INTEGRATION_POINT_URI",
+               "value":""
+            }
+         ],
+         "appArgs":[
+         ],
+         "attributes":[
+         ]
+      }
+   }
+}

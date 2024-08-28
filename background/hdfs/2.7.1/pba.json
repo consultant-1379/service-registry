@@ -1,0 +1,41 @@
+{
+	"pba": {
+		"status": "ACTIVE",
+		"serviceInfo": {
+			"id": "a74bd4c2-2c57-44fd-9714-d0c7430fb948",
+			"serviceType": "BACKGROUND",
+			"technology": "hdfs",
+			"version": "2.7.1"
+		},
+		"buildInfo": {
+			"container": {
+				"docker": {
+					"name": "datanode:v2.7.3",
+					"repoBaseUrl": "armdocker.rnd.ericsson.se",
+					"repoPath": "aia_releases/hadoop",
+					"imagePath": "datanode:v2.7.3",
+					"network": "HOST",
+					"portList": [],
+					"mountPaths": [],
+					"mountName": [],
+					"forcePullImage": true,
+					"privileged": true
+				},
+				"dependencies": []
+			},
+			"deploymentInfo": {
+				"servicePorts": [],
+				"maturity": 0,
+				"stagingStatus": true,
+				"inProduction": true,
+				"deploymentScope": "private|public",
+				"noOfInstances": "1",
+				"noOfCpuPerInstance": "1",
+				"memorySize": "<InGB>",
+				"envArgs": [],
+				"appArgs": [],
+				"attributes": []
+			}
+		}
+    }
+}

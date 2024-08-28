@@ -1,0 +1,127 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"",
+         "serviceType":"IO",
+         "technology":"file-beam",
+         "version":"1.0.0"
+      },
+      "extensionPoints":[
+         {
+            "technology":"file-beam",
+            "description":"The File data source allows the application to read data from a file.",
+            "uri":{
+               "protocol":"file://",
+               "address":"<path>",
+			   "help":"Path of the file in the format file://dir/file",
+               "args":[{
+			         "key" : "format",
+    					 "value" : [ "" ],
+    					 "type" : "array"
+    			   }]
+            },
+            "attributes":[
+               {
+                  "key":"compression.type",
+                  "value":"",
+                  "isReadOnly":false,
+                  "help":"File compression types",
+                  "isRequired":false,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"file-beam",
+            "description":"The File data sink allows the application to write data to a file",
+            "uri":{
+               "protocol":"file://",
+               "address":"path",
+			   "help":"Path of the file in the format file://dir/file",			   
+               "args":[{
+                  "key" : "format",
+                  "value" : [ "" ],
+                  "type" : "array"
+               }]
+            },
+            "attributes":[
+               {
+                  "key":"header",
+                  "value":"",
+                  "isReadOnly":false,
+				  "help":"Write data header to the specified file",				  
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                "key":"footer",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Write data footer to the specified file",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"num.shards",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Number of shards for the output files.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"shards.name.template",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Shard file name template.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"suffix",
+                "value":"",
+                "isReadOnly":false,
+                "help":"Suffix for the output file.",				  
+                "isRequired":false,
+                "type":"string"
+             },
+             {
+                "key":"windowed.writes",
+                "value":"false",
+                "isReadOnly":false,
+                "help":"Windowed writes enabled or not.",				  
+                "isRequired":false,
+                "type":"boolean"
+             }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "dependencies":[""]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

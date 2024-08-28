@@ -1,0 +1,433 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"service:io:kafka-connect-kafka:0.10.2.1",
+         "description":"Apache Kafka based service",
+         "serviceType":"IO",
+         "technology":"kafka-connect-kafka",
+         "version":"0.10.2.1"
+      },
+      "extensionPoints":[
+         {
+            "technology":"kafka-connect-kafka",
+            "description":"The Kafka data source for kafka-connect that allows the application to read streams of data from topics in the Kafka cluster.",
+            "uri":{
+               "protocol":"kafka://",
+               "address":"<Topic Name>",
+			   "help":"Kafka url in the format kafka://address:port",
+               "args":[
+                  {
+                     "key":"schema",
+                     "value":"<EventTypeSchema>",
+                     "type":"string"
+                  },
+                  {
+                     "key":"format",
+                     "value":[
+                        "String",
+                        "Avro",
+                        "Binary",
+                        "Google Protocol Buffer"
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"kafka.mode",
+                  "value":"standalone|distributed",
+                  "regex":".*",
+                  "isReadOnly":false,
+                  "help":"If the kafka should be used in standalone mode or distributed one.",
+                  "isRequired":true,
+                  "type":"string"
+               },			
+               {
+                  "key":"bootstrap.servers",
+                  "value":"localhost:9092",
+                  "regex":".*",
+                  "isReadOnly":false,
+                  "help":"A list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers are specified here for bootstrapping—this list only impacts the initial hosts used to discover the full set of servers. This list should be in the form host1:port1,host2:port2,...",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"key.converter.schemas.enable",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Converter-specific settings can be passed in by prefixing the Converter's setting with the converter we want to apply it to.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"value.converter.schemas.enable",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Converter-specific settings can be passed in by prefixing the Converter's setting with the converter we want to apply it to.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"key.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"Default key converter for Kafka",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"value.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"Default Value converter for Kafka",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"internal.key.converter.schemas.enable",
+                  "value":"false",
+                  "isReadOnly":false,
+                  "help":"The internal converter used for offsets, config, and status data is configurable and must be specified, but most users will always want to use the built-in default.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"internal.value.converter.schemas.enable",
+                  "value":"false",
+                  "isReadOnly":false,
+                  "help":"The internal converter used for offsets, config, and status data is configurable and must be specified, but most users will always want to use the built-in default.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"internal.key.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"The internal key converter used for offsets and config data. Offset and config data are never visible outside of Kafka Connect in this format.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"internal.value.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"The internal value converter used for offsets and config data.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.file.filename",
+                  "value":"/tmp/connect.offsets",
+                  "isReadOnly":false,
+                  "help":"Path where the offset will be stored.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.flush.interval.ms",
+                  "value":"10000",
+                  "isReadOnly":false,
+                  "help":"Flush mode for offset. Lower values are useful for testing/debugging.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"group.id",
+                  "value":"<source-group_id>",
+                  "isReadOnly":false,
+                  "help":"Unique name for the cluster, used in forming the Connect cluster group. Note that this must not conflict with consumer group IDs.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.topic",
+                  "value":"<source-offset_storage_topic>",
+                  "isReadOnly":false,
+                  "help":"Topic to use for storing offsets. This topic should have many partitions and be replicated and compacted.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.replication.factor",
+                  "value":"1",
+                  "isReadOnly":false,
+                  "help":"Most users will want to use the built-in default replication factor of 3 or in some cases even specify a larger value.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"config.storage.topic",
+                  "value":"<source-config_storage_topic>",
+                  "isReadOnly":false,
+                  "help":"Topic to use for storing connector and task configurations.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"config.storage.replication.factor",
+                  "value":"1",
+                  "isReadOnly":false,
+                  "help":"Most users will want to use the built-in default replication factor of 3 or in some cases even specify a larger value.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"event.type",
+                  "value":"<source.event_type>",
+                  "isReadOnly":false,
+                  "help":"Event type that will be triggered.",
+                  "isRequired":true,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"kafka-connect-kafka",
+            "description":"The Kafka data sink for kafka-connect that allows the application to write streams of data from topics in the Kafka cluster.",
+            "uri":{
+               "protocol":"kafka://",
+               "address":"<Topic Name>",
+			   "help":"Kafka url in the format kafka://address:port",
+               "args":[
+                  {
+                     "key":"schema",
+                     "value":"<EventTypeSchema>",
+                     "type":"string"
+                  },
+                  {
+                     "key":"format",
+                     "value":[
+                        "String",
+                        "Avro",
+                        "Binary",
+                        "Google Protocol Buffer"
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"kafka.mode",
+                  "value":"standalone|distributed",
+                  "regex":".*",
+                  "isReadOnly":false,
+                  "help":"If the kafka should be used in standalone mode or distributed one.",
+                  "isRequired":true,
+                  "type":"string"
+               },			
+               {
+                  "key":"bootstrap.servers",
+                  "value":"localhost:9092",
+                  "regex":".*",
+                  "isReadOnly":false,
+                  "help":"A list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers are specified here for bootstrapping—this list only impacts the initial hosts used to discover the full set of servers. This list should be in the form host1:port1,host2:port2,...",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"key.converter.schemas.enable",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Converter-specific settings can be passed in by prefixing the Converter's setting with the converter we want to apply it to.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"value.converter.schemas.enable",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Converter-specific settings can be passed in by prefixing the Converter's setting with the converter we want to apply it to.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"key.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"Default key converter for Kafka",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"value.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"Default Value converter for Kafka",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"internal.key.converter.schemas.enable",
+                  "value":"false",
+                  "isReadOnly":false,
+                  "help":"The internal converter used for offsets, config, and status data is configurable and must be specified, but most users will always want to use the built-in default.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"internal.value.converter.schemas.enable",
+                  "value":"false",
+                  "isReadOnly":false,
+                  "help":"The internal converter used for offsets, config, and status data is configurable and must be specified, but most users will always want to use the built-in default.",
+                  "isRequired":true,
+                  "type":"boolean"
+               },
+               {
+                  "key":"internal.key.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"The internal key converter used for offsets and config data. Offset and config data are never visible outside of Kafka Connect in this format.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"internal.value.converter",
+                  "value":"org.apache.kafka.connect.json.JsonConverter",
+                  "isReadOnly":false,
+                  "help":"The internal value converter used for offsets and config data.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.file.filename",
+                  "value":"/tmp/connect.offsets",
+                  "isReadOnly":false,
+                  "help":"Path where the offset will be stored.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.flush.interval.ms",
+                  "value":"10000",
+                  "isReadOnly":false,
+                  "help":"Flush mode for offset. Lower values are useful for testing/debugging.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"group.id",
+                  "value":"<sink-group_id>",
+                  "isReadOnly":false,
+                  "help":"Unique name for the cluster, used in forming the Connect cluster group. Note that this must not conflict with consumer group IDs.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.topic",
+                  "value":"<sink-offset_storage_topic>",
+                  "isReadOnly":false,
+                  "help":"Topic to use for storing offsets. This topic should have many partitions and be replicated and compacted.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"offset.storage.replication.factor",
+                  "value":"1",
+                  "isReadOnly":false,
+                  "help":"Most users will want to use the built-in default replication factor of 3 or in some cases even specify a larger value.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"config.storage.topic",
+                  "value":"<sink-config_storage_topic>",
+                  "isReadOnly":false,
+                  "help":"Topic to use for storing connector and task configurations.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"config.storage.replication.factor",
+                  "value":"1",
+                  "isReadOnly":false,
+                  "help":"Most users will want to use the built-in default replication factor of 3 or in some cases even specify a larger value.",
+                  "isRequired":true,
+                  "type":"integer"
+               },
+               {
+                  "key":"event.type",
+                  "value":"<sink.event_type>",
+                  "isReadOnly":false,
+                  "help":"Event type that will be triggered.",
+                  "isRequired":true,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"kafka:0.10.2.1",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia/base",
+               "imagePath":"kafka:0.10.2.1",
+               "network":"HOST",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+            "service:background:zookeeper:3.4.9"
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+            {
+               "key":"mainClass",
+               "value":"<main-classofSparkapp>"
+            },
+            {
+               "key":"deployMode",
+               "value":"<client/cluster>"
+            },
+            {
+               "key":"masterUrl",
+               "value":"<sparkmaster-ip:port>"
+            },
+            {
+               "key":"bpsJar",
+               "value":"hdfs://<pathonhdfs>"
+            },
+            {
+               "key":"flowPath",
+               "value":"hdfs://<pathonhdfs>"
+            },
+            {
+               "key":"jobArguments",
+               "value":"<otherarguments>"
+            }
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

@@ -1,0 +1,92 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"",
+         "serviceType":"PROCESSOR",
+         "technology":"Flink",
+         "version":"1.2.1"
+      },
+      "processorInfo":{
+         "id":"4f1da381-907d-42f9-b7f5-f6044a02e1d0",
+         "technology":"Flink",
+         "version":"1.2.1",
+         "description":"Apache Flink is an open-source stream processing framework for distributed, high-performing, always-available, and accurate data streaming applications."
+      },
+      "extensionPoints":[
+
+      ],
+      "integrationPoints":[
+
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"flink-1.2.1:0.0.2",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia_releases",
+               "imagePath":"flink-1.2.1:0.0.2",
+               "network":"HOST",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<In GB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+            {
+               "key":"mainClass",
+               "value":"<main-class of Spark app>"
+            },
+            {
+               "key":"deployMode",
+               "value":"<client/cluster>"
+            },
+            {
+               "key":"masterUrl",
+               "value":"<sparkmaster-ip:port>"
+            },
+            {
+               "key":"bpsJar",
+               "value":"hdfs://<path on hdfs>"
+            },
+            {
+               "key":"flowPath",
+               "value":"hdfs://<path on hdfs>"
+            },
+            {
+               "key":"jobArguments",
+               "value":"<other arguments>"
+            }
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

@@ -1,0 +1,182 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"275a4a67-ec5e-4c67-b31e-bce81a77d193",
+         "description":"JDBC Postgres-based data connector",
+         "serviceType":"IO",
+         "technology":"jdbc-postgresql",
+         "version":"9.6.5"
+      },
+      "extensionPoints":[
+         {
+            "technology":"PostgreSQL",
+            "description":"The PostgreSQL data source reads data from a specified table within a PostgreSQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"connection url",
+			   "help":"Url in the format jdbc:postgresql://address:port/database",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The PostgreSQL database user's password.",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"user",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The username used to connect to the PostgreSQL database.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driver",
+                  "value":"org.postgresql.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"table.name",
+                  "value":"<table-name>",
+                  "isReadOnly":false,
+                  "help":"The name of the table to read from",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"ssl",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Connect using SSL. The driver must have been compiled with SSL support. This property does not need a value associated with it. The mere presence of it specifies a SSL connection. However, for compatibility with future versions, the value 'true' is preferred.",
+                  "isRequired":false,
+                  "type":"boolean"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"PostgreSQL",
+            "description":"The PostgreSQL data sink writes data to a specified table within a PostgreSQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"connection url",
+			   "help":"Url in the format jdbc:postgresql://address:port/database",			   
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The PostgreSQL database user's password.",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"user",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The PostgreSQL database user on whose behalf the connection is being made.",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driver",
+                  "value":"org.postgresql.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"table.name",
+                  "value":"<table-name>",
+                  "isReadOnly":false,
+                  "help":"The name of the table to write to",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"ssl",
+                  "value":"true",
+                  "isReadOnly":false,
+                  "help":"Connect using SSL. The driver must have been compiled with SSL support. This property does not need a value associated with it. The mere presence of it specifies a SSL connection. However, for compatibility with future versions, the value 'true' is preferred.",
+                  "isRequired":false,
+                  "type":"boolean"
+               }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"aia-docker-PostgreSQL",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia_releases",
+               "imagePath":"postgres:v9.6.5",
+               "network":"<networktype>",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

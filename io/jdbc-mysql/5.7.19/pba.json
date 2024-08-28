@@ -1,0 +1,165 @@
+{
+   "pba":{
+      "status":"ACTIVE",
+      "serviceInfo":{
+         "id":"03ac8217-a01b-49ce-bc54-50c535e96672",
+         "serviceType":"IO",
+         "technology":"jdbc-mysql",
+         "version":"5.7.19"
+      },
+      "extensionPoints":[
+         {
+            "technology":"jdbc-mysql",
+            "description":"The MySQL data source reads data from a specified table within a MySQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"connection url",
+			   "help":"Url in the format jdbc:mysql://address:port/database",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The password used to connect to the MySQL database",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"user",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The username used to connect to the MySQL database",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driver",
+                  "value":"com.mysql.jdbc.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"table.name",
+                  "value":"<table-name>",
+                  "isReadOnly":false,
+                  "help":"The name of the table to read from",
+                  "isRequired":true,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "integrationPoints":[
+         {
+            "technology":"jdbc-mysql",
+            "description":"The MySQL data sink writes data to a specified table within a MySQL database",
+            "uri":{
+               "protocol":"jdbc://",
+               "address":"connection url",
+			   "help":"Url in the format jdbc:mysql://address:port/database",
+               "args":[
+                  {
+                     "key":"format",
+                     "value":[
+                        ""
+                     ],
+                     "type":"array"
+                  }
+               ]
+            },
+            "attributes":[
+               {
+                  "key":"password",
+                  "value":"<password>",
+                  "isReadOnly":false,
+                  "help":"The password used to connect to the My SQL database",
+                  "isRequired":false,
+                  "type":"string"
+               },
+               {
+                  "key":"user",
+                  "value":"<user-name>",
+                  "isReadOnly":false,
+                  "help":"The username used to connect to the My SQL database",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"driver",
+                  "value":"com.mysql.jdbc.Driver",
+                  "isReadOnly":true,
+                  "help":"The JDBC driver class that implements the java.sql.Driver interface",
+                  "isRequired":true,
+                  "type":"string"
+               },
+               {
+                  "key":"table.name",
+                  "value":"<table-name>",
+                  "isReadOnly":false,
+                  "help":"The name of the table to write to",
+                  "isRequired":true,
+                  "type":"string"
+               }
+            ]
+         }
+      ],
+      "buildInfo":{
+         "container":{
+            "docker":{
+               "name":"aia-docker-mysql",
+               "repoBaseUrl":"armdocker.rnd.ericsson.se",
+               "repoPath":"aia_releases",
+               "imagePath":"mysql:v5.7.19",
+               "network":"<networktype>",
+               "portList":[
+
+               ],
+               "mountPaths":[
+
+               ],
+               "mountName":[
+
+               ],
+               "forcePullImage":true,
+               "privileged":true
+            }
+         },
+         "dependencies":[
+
+         ]
+      },
+      "deploymentInfo":{
+         "servicePorts":[
+
+         ],
+         "maturity":0,
+         "stagingStatus":true,
+         "inProduction":true,
+         "deploymentScope":"private|public",
+         "noOfInstances":"1",
+         "noOfCpuPerInstance":"1",
+         "memorySize":"<InGB>",
+         "envArgs":[
+
+         ],
+         "appArgs":[
+
+         ],
+         "attributes":[
+
+         ]
+      }
+   }
+}

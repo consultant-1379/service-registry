@@ -1,0 +1,68 @@
+{
+    "pba": {
+        "status": "ACTIVE",
+        "serviceInfo": {
+            "id": "",
+            "serviceType": "BACKGROUND",
+            "technology": "zookeeper",
+            "version": "3.4.10"
+        },
+        "extensionPoints": [],
+        "integrationPoints": [],
+        "buildInfo": {
+            "container": {
+                "docker": {
+                    "name": "zookeeper:3.4.10",
+                    "repoBaseUrl": "armdocker.rnd.ericsson.se",
+                    "repoPath": "aia_releases",
+                    "imagePath": "zookeeper:3.4.10",
+                    "network": "HOST",
+                    "portList": [],
+                    "mountPaths": [],
+                    "mountName": [],
+                    "forcePullImage": true,
+                    "privileged": true
+                }
+            },
+            "dependencies": []
+        },
+        "deploymentInfo": {
+            "servicePorts": [],
+            "maturity": 0,
+            "stagingStatus": true,
+            "inProduction": true,
+            "deploymentScope": "private|public",
+            "noOfInstances": "1",
+            "noOfCpuPerInstance": "1",
+            "memorySize": "<InGB>",
+            "envArgs": [],
+            "appArgs": [
+                {
+                    "key": "mainClass",
+                    "value": "<main-classofSparkapp>"
+                },
+                {
+                    "key": "deployMode",
+                    "value": "<client/cluster>"
+                },
+                {
+                    "key": "masterUrl",
+                    "value": "<sparkmaster-ip:port>"
+                },
+                {
+                    "key": "bpsJar",
+                    "value": "hdfs://<pathonhdfs>"
+                },
+                {
+                    "key": "flowPath",
+                    "value": "hdfs://<pathonhdfs>"
+                },
+                {
+                    "key": "jobArguments",
+                    "value": "<otherarguments>"
+                }
+            ],
+            "attributes": []
+        }
+    }
+}
